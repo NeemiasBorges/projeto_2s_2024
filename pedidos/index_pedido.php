@@ -102,6 +102,9 @@
                 <a class="nav-link" href="consulta_pedido.php">Consultar Pedido</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="relatorio_pedidos.php">Relatórios</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="../index.php">Retornar</a>
             </li>
         </ul>
