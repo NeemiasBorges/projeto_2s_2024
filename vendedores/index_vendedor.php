@@ -8,25 +8,24 @@
     <link href="../config/style.css" rel="stylesheet">
     
     <style>
-        /* Definindo a cor de fundo roxa e as fontes */
+    
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #6a0dad; /* Cor roxa */
+            background-color: #6a0dad; 
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Garantir que a altura ocupe toda a tela */
-            color: #fff; /* Cor do texto em branco */
+            height: 100vh; 
+            color: #fff; 
         }
 
-        /* Centralizando o conteúdo */
         .container {
             width: 100%;
             max-width: 800px;
             padding: 30px;
-            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+            background-color: rgba(255, 255, 255, 0.9); 
             border-radius: 8px;
             text-align: center;
         }
@@ -37,7 +36,6 @@
             margin-bottom: 40px;
         }
 
-        /* Estilo para o menu de navegação */
         nav ul {
             list-style-type: none;
             padding: 0;
@@ -65,15 +63,15 @@
 
         nav ul li a:hover {
             background-color: #0056b3;
-            transform: translateY(-5px); /* Efeito de levitação */
+            transform: translateY(-5px); 
         }
 
         nav ul li a:active {
             background-color: #004085;
-            transform: translateY(1px); /* Efeito de clique */
+            transform: translateY(1px); 
         }
 
-        /* Responsividade */
+    
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -102,6 +100,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="exclusao_vendedor.php">Excluir Vendedor</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="relatorio_vendedor.php">Relatorio</a>
             </li>
             <li class="nav-item">
     <a class="nav-link" href="../index.php">Retornar</a>
