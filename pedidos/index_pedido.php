@@ -6,9 +6,9 @@
     <title>Gestão de Produtos</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="../config/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
-    
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #6a0dad; 
@@ -70,19 +70,6 @@
             background-color: #004085;
             transform: translateY(1px); 
         }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            nav ul li a {
-                font-size: 1rem;
-                width: 150px;
-                padding: 10px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -93,26 +80,51 @@
     <nav class="mt-3">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="inclusao_pedido.php">Incluir Pedido</a>
+                <a class="" href="inclusao_pedido.php">Incluir Pedido</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="exclusao_pedido.php">Excluir Pedido</a>
+                <a class="" href="exclusao_pedido.php">Excluir Pedido</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="consulta_pedido.php">Consultar Pedido</a>
+                <a class="" href="consulta_pedido.php">Consultar Pedido</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="relatorio_pedidos.php">Relatórios</a>
+                <a class="" href="#" data-bs-toggle="modal" data-bs-target="#relatorioModal">Relatórios</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../index.php">Retornar</a>
+                <a class="" href="../index.php">Retornar</a>
             </li>
         </ul>
     </nav>
 </div>
 
-<!-- Script Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<div class="modal fade" id="relatorioModal" tabindex="-1" aria-labelledby="relatorioModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="relatorioModalLabel">Gerar Relatório</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="relatorio_pedidos.php" method="GET">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="dataInicio" class="form-label">Data Início</label>
+                        <input type="date" id="dataInicio" name="data_inicio" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dataFim" class="form-label">Data Fim</label>
+                        <input type="date" id="dataFim" name="data_fim" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Gerar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
