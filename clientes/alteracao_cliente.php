@@ -4,7 +4,6 @@ include('../config/conexao.php');
 $erro = "";
 $sucesso = "";
 
-// Verifica se o ID do cliente foi passado na URL para edição
 if (isset($_GET['id'])) {
     $id_cliente = $_GET['id'];
     $sql = "SELECT * FROM clientes WHERE id = ?";
@@ -19,7 +18,6 @@ if (isset($_GET['id'])) {
     }
 }
 
-// Atualização do cliente
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['id'])) {
     $dados = [
         'nome' => $_POST['nome'],
@@ -39,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['id'])) {
         'estado_civil' => $_POST['estado_civil']
     ];
 
-    // Verifica se os campos obrigatórios não estão vazios
     foreach ($dados as $key => $value) {
         if (empty($value)) {
             $erro = "Todos os campos são obrigatórios!";
@@ -47,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['id'])) {
         }
     }
 
-    // Se não houve erro, executa a atualização
     if (empty($erro)) {
         $sql = "UPDATE clientes SET 
                 nome = ?, endereco = ?, numero = ?, bairro = ?, cidade = ?, estado = ?, 
@@ -65,7 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['id'])) {
     }
 }
 
-// Busca todos os clientes para exibição
 $sql_clientes = "SELECT * FROM clientes";
 $result_clientes = mysqli_query($conn, $sql_clientes);
 
@@ -79,7 +74,8 @@ $result_clientes = mysqli_query($conn, $sql_clientes);
     <title>Alterar Cliente</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="../config/style.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
 </head>
 <body>
 
@@ -121,7 +117,7 @@ $result_clientes = mysqli_query($conn, $sql_clientes);
 
     <!-- Formulário de alteração de cliente -->
     <?php if (isset($cliente)): ?>
-        <h3>Alterar Cliente ID: <?= $cliente['id'] ?></h3>
+        <h3 class="d-none">Alterar Cliente ID: <?= $cliente['id'] ?></h3>
         <form action="alteracao_cliente.php?id=<?= $cliente['id'] ?>" method="POST">
             <?php 
                 $campos = [
@@ -149,10 +145,8 @@ $result_clientes = mysqli_query($conn, $sql_clientes);
                     </div>
                 <?php endforeach; ?>
 
-            <button type="submit">Alterar Cliente</button>
-            <li class="nav-item">
-                <a class="nav-link" href="index_cliente.php">Retornar</a>
-        </li>
+            <button  type="submit">Alterar Cliente</button>
+            <a class="nav-link btn btn-outline-success m-2" role="button" href="index_cliente.php">Retornar</a>
         </form>
     <?php endif; ?>
 </div>

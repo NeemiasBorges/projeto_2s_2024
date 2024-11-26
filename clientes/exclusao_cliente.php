@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_cliente'])) {
     if (!$cliente) {
         $erro = "Cliente não encontrado!";
     } else {
-        // Executa a exclusão
         $sql_delete = "DELETE FROM clientes WHERE id = ?";
         $stmt = mysqli_prepare($conn, $sql_delete);
         mysqli_stmt_bind_param($stmt, 'i', $id_cliente);
